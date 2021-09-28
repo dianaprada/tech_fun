@@ -48,11 +48,11 @@ $ npm start
 ## Collaboration
 ***
 
-* @DiegoParraGarces
-* @johannaramirez2754
-* @MJvanegas
-* @OscarHub90
-* @dianaprada
+* [@MJvanegas](https://github.com/MJvanegas)
+* [@DiegoParraGarces](https://github.com/DiegoParraGarces)
+* [@johannaramirez2754](https://github.com/johannaramirez2754)
+* [@OscarHub90](https://github.com/OscarHub90)
+* [@dianaprada](https://github.com/dianaprada)
 
 ***
 ## License
