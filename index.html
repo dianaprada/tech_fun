@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="icon" sizes="32x32" href="../assets/tech_fun_favico.png" type="image/svg+xml">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- END Scripts -->
+    <title>Ventas - Tech & Fun Project </title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark py-0 barColor">
+        <a class="navbar-brand" href="#">
+            <img class="ml-4" src="../assets/tech_fun_horizontal_white.png" width="167" height="59" alt="Tech & Fun Logo" loading="lazy">
+        </a>
+        <div class="collapse navbar-collapse justify-content-end navbar-margin" id="navBar">
+            <div class="navbar-nav">
+                <a class="nav-link mx-1 active" href="#">Ventas<span class="sr-only">(current)</span></a>
+                <a class="nav-link mx-1" href="./views/companies.html">Productos</a>
+                <a class="nav-link mx-1 users-tab" href="./views/users.html" id="navLinkUsers">Usuarios</a>
+              
+            </div>
+        </div>
+    </nav>
+
+    <main class="main mx-4">
+        <section>
+            <h1 class="title mt-5 mb-3">Ventas</h1>
+
+            <!-- Search Bar and filter-->
+            <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row">
+                    <div class="input-group filter mr-2">
+                        <input type="text" class="form-control filter-input"
+                            aria-label="Text input" id="searchBar">
+                       
+                    </div>
+
+                    <!-- Button Search -->
+
+                    <button type="button" class="btn btn-outline-secondary btn-search" id="btnSearch"><i class="fa fa-search"
+                            aria-hidden="true"></i></button>
+
+                </div>
+
+                <!-- New Contact Button -->
+
+                <div class="d-flex flex-row justify-content-end">
+                    <button type="button" class="btn btn-size float-right btnColor" data-toggle="modal"
+                        data-target="#newContactModal" id="addContactBtn">Agregar Venta</button>
+                </div>
+
+                <!-- END New Contact Button -->
+
+            </div>
+
+            <!-- END Search Bar and Filter -->
+
+            <div class="selected-contacts d-flex justify-content-between align-items-center mt-4 mb-1">
+                <button type="button" class="btn btn-xsm btn-tag disable contacts-selected d-none" id="numberSelectedContacts" > </button>
+                <button type="button" class="btn btn-outline-primary btn-size border-0 delete-contacts d-none"
+                    data-toggle="modal" data-target="#deleteManyContactsModal" id="deleteSelectedContactsBtnModal"><i class="fa fa-trash" aria-hidden="true"></i>
+                    Eliminar Venta</button>
+            </div>
+
+            <!-- Contacts Grid -->
+
+            <table class="table table-borderless table-bordered table-responsive-lg table-hover">
+                <thead>
+                    <tr class="table-bordered">
+                        
+                        <th class="align-middle" scope="col">ID Venta</th>
+                        <th class="align-middle" scope="col">Producto</th>
+                        <th class="align-middle" scope="col">Cantidad</th>
+                        <th class="align-middle" scope="col">Precio Unitario</th>
+                        <th class="align-middle" scope="col">Valor total</th>
+                        <th class="align-middle" scope="col">fecha de venta </th>
+                        <th class="align-middle" scope="col">ID Cliente</th>
+                        <th class="align-middle" scope="col">Cliente </th>
+                        <th class="align-middle" scope="col">Vendedor </th>
+                        <th class="align-middle" scope="col">Estado </th>
+                        <th class="align-middle text-center" scope="col">Acciones</th>
+                    </tr>
+                   
+                </thead>
+                <tbody class="contactsBodyTable" id="contactsBodyTable">
+                    <tr class="contact-row">
+                        <td class="align-middle text-center">001</td>
+                        <td class="align-middle text-center">Producto 001</td>
+                        <td class="align-middle text-center"> 2</td>
+                        <td class="align-middle text-center">$ 50.000</td>
+                        <td class="align-middle text-center">$ 100.000</td>
+                        <td class="align-middle text-center">01/02/2021</td>
+                        <td class="align-middle text-center">1098665961</td>
+                        <td class="align-middle text-center">Fulanito de Tal</td>
+                        <td class="align-middle text-center">Marisol Vanegas</td>
+                        <td class="align-middle text-center">En proceso</td>
+                        <td class="align-middle text-center">
+                            <button type="button" class="btn btn-lg text-black-50 deleteContact"  data-id="${contactID}" data-toggle="modal" data-target="#deleteContactModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-lg text-black-50 editContact"  data-id="${contactID}" data-toggle="modal" data-target="#editContactModal"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="contact-row">
+                        <td class="align-middle text-center">002</td>
+                        <td class="align-middle text-center">Producto 002</td>
+                        <td class="align-middle text-center"> 5</td>
+                        <td class="align-middle text-center">$ 40.000</td>
+                        <td class="align-middle text-center">$ 200.000</td>
+                        <td class="align-middle text-center">01/09/2021</td>
+                        <td class="align-middle text-center">1098665581</td>
+                        <td class="align-middle text-center">Pepito Perez</td>
+                        <td class="align-middle text-center">Diego Parra</td>
+                        <td class="align-middle text-center">Cancelada</td>
+                        <td class="align-middle text-center">
+                            <button type="button" class="btn btn-lg text-black-50 deleteContact"  data-id="${contactID}" data-toggle="modal" data-target="#deleteContactModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-lg text-black-50 editContact"  data-id="${contactID}" data-toggle="modal" data-target="#editContactModal"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!-- END Contacts Grid -->
+
+        </section>
+    </main>
+
+   
+
+    <!-- Delete ONE Contact Modal -->
+
+    <div class="modal fade" id="deleteContactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body text-center mt-1">
+                    <img src="./assets/delete_company.png" alt="Delete logo">
+                    <input type="hidden" id="deleteContactID" name="deleteCompanyID">
+                    <p class="pt-4">¿Seguro que deseas eliminar la venta?</p>
+                </div>
+                <div class="modal-footer border-top-0 justify-content-around">
+                    <button type="button" class="btn btn-success btn-lg border-0 btnColor"
+                        data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success btn-lg btn-danger delete"
+                        data-dismiss="modal" id="deleteContactModalBtn">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END ONE Delete Contacts Modal -->
+
+    
+    <!-- NEW Contacts Modal -->
+
+    <div class="modal fade" id="newContactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header barColor new-contact-modal-header">
+                    <h1 class="title m-0 text-white">Nueva Venta</h1>
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="new-contact-form">
+                        <div class="form-group form-row border py-4 px-2 borders-new-user-modal bg-white">
+                            
+                            <div class="col">
+                                <label for="newContactName" class="col-form-label col-form-label-sm">ID Cliente<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="newContactName" name="newContactName">
+                            </div>
+                            <div class="col">
+                                <label for="newContactLastname" class="col-form-label col-form-label-sm">Nombre del Cliente<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="newContactLastname" name="newContactLastname">
+                            </div>
+                            <div class="col">
+                                <label for="position" class="col-form-label col-form-label-sm">Fecha de la Venta<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="newContactPosition" name="position">
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="form-group form-row contact-channel-info">
+                            <div class="col">
+                                <label for="region" class="col-form-label col-form-label-sm">Vendedor<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control form-control-sm" name="region" id="newContact_regionSelectID">
+                                    <option selected selected disabled value="0">Seleccionar Vendedor</option>
+                                    <option value="Marisol Vanegas">Marisol Vanegas</option>
+                                    <option value="Diego Parra">Diego Parra</option>
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="newContactEmail" class="col-form-label col-form-label-sm">Estado de la Venta<span
+                                        class="text-danger">*</span></label>
+                                        <select class="form-control form-control-sm" name="newContactChannel"
+                                        id="newContactChannel">
+                                        <option selected disabled value="Seleccionar canal">Seleccionar Estado</option>
+                                        <option value="En Proceso">En Proceso</option>
+                                        <option value="Entregada">Entregada</option>
+                                        <option value="Cancelada">Cancelada</option>
+                                        
+                                    </select>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group form-row ">
+                            <div class="col">
+                                <label for="newContactChannel" class="col-form-label col-form-label-sm">Producto</label>
+                                <select class="form-control form-control-sm" name="newContactChannel"
+                                    id="newContactChannel">
+                                    <option selected disabled value="Seleccionar canal">Seleccionar Producto</option>
+                                    <option value="Producto 001">Producto 001</option>
+                                    <option value="Producto 002">Producto 002</option>
+                                    <option value="Producto 003">Producto 003</option>
+                                    <option value="Producto 004">Producto 004</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="newProductPrice" class="col-form-label col-form-label-sm">Precio Unitario<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" disabled id="newProductPrice" name="newProductPrice">
+                            </div>
+                            <div class="col">
+                                <label for="newProductCant" class="col-form-label col-form-label-sm">Cantidad<span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-sm" id="newProductCant" name="newProductCant">
+                            </div>
+                            <div class="col">
+                                <label for="newProductSubTotal" class="col-form-label col-form-label-sm">Sub Total<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" disabled id="newProductSubTotal" name="newProductSubTotal">
+                            </div>
+                           
+                            <div class="col">
+                                    <button type="button" class="btn btn-secondary text-black btn-sm ml-3 buttonTreeAdd newChanelBtn" id="newContactChannelBtn" > <i class="fas fa-plus"></i> Agregar Producto</button>    
+                            </div>
+                        </div>
+               
+                        <div class="form-group form-row mt-4 mb-0">
+                            <label class="col-form-label col-form-label-sm"><span
+                                    class="text-danger">Valor Total de la Venta: $ </span></label>
+                        </div>
+
+                        <div class="form-group form-row mt-4 mb-0">
+                            <label class="col-form-label col-form-label-sm"><span
+                                    class="text-danger">*</span>Información requerida</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-success btn-lg border-0 btnColor"
+                        data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success btn-lg btnColor create" 
+                        id="saveContactModalBtn">Guardar Venta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END New Contacts Modal -->
+
+    <!-- Modify Contacts Modal -->
+
+    <div class="modal fade" id="editContactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header barColor new-contact-modal-header">
+                    <h1 class="title m-0 text-white">Actualizar Venta</h1>
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="editContactForm">
+                        <div class="form-group form-row border py-4 px-2 borders-new-user-modal bg-white">
+         
+                            <div class="col">
+                                <label for="editContactName" class="col-form-label col-form-label-sm">ID Cliente<span
+                                        class="text-danger">*</span></label>
+                                <input type="hidden" id="editContactID">
+                                <input type="text" class="form-control form-control-sm" id="editContactName"
+                                    name="editContactName">
+                            </div>
+                            <div class="col">
+                                <label for="editContactLastName" class="col-form-label col-form-label-sm">Nombre del Cliente<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="editContactLastName"
+                                    name="editContactLastName">
+                            </div>
+                            <div class="col">
+                                <label for="editContactPosition" class="col-form-label col-form-label-sm">Fecha de la Venta<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="editContactPosition"
+                                    name="editContactPosition">
+                            </div>
+                
+                        </div>
+                        <div class="form-group form-row contact-channel-info">
+                            <div class="col">
+                                <label for="editContact_regionSelectID" class="col-form-label col-form-label-sm">Vendedor<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control form-control-sm" name="editContact_regionSelectID" id="editContact_regionSelectID">
+                                    <option selected selected disabled value="0">Seleccionar Vendedor</option>
+                                    <option value="Marisol Vanegas">Marisol Vanegas</option>
+                                    <option value="Diego Parra">Diego Parra</option>
+
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="editContact_countrySelectID" class="col-form-label col-form-label-sm">Estado de la Venta<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control form-control-sm" name="editContact_countrySelectID" id="editContact_countrySelectID">
+                                    <option selected selected disabled value="0">Seleccionar Estado</option>
+                                    <option value="En Proceso">En Proceso</option>
+                                    <option value="Entregada">Entregada</option>
+                                    <option value="Cancelada">Cancelada</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-row ">
+                            <div class="col">
+                                <label for="editContactChannel" class="col-form-label col-form-label-sm">Productos</label>
+                                <select class="form-control form-control-sm" name="editContactChannel"
+                                    id="editContactChannel">
+                                    <option selected disabled value="Seleccionar canal">Seleccionar Producto</option>
+                                    <option value="Producto 001">Producto 001</option>
+                                    <option value="Producto 002">Producto 002</option>
+                                    <option value="Producto 003">Producto 003</option>
+                                    <option value="Producto 004">Producto 004</option>
+                                   
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="editProductPrice" class="col-form-label col-form-label-sm">Precio Unitario</label>
+                                <input type="text" class="form-control form-control-sm" disabled id="editProductPrice"
+                                    name="editProductPrice">
+                            </div>
+                            <div class="col">
+                                <label for="editProductCant" class="col-form-label col-form-label-sm">Cantidad</label>
+                                    <input type="text" class="form-control form-control-sm" id="editProductCant" name="editProductCant">
+                            </div>
+                            <div class="col">
+                                <label for="editProductSubTotal" class="col-form-label col-form-label-sm">Sub Total<span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" disabled id="editProductSubTotal" name="editProductSubTotal">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-secondary text-black btn-sm ml-3 buttonTreeAdd newChanelBtn" id="editContactNewChannelBtn" > <i class="fas fa-plus"></i> Agregar Producto</button>    
+                        </div>
+                        </div>
+                        <div class="form-group form-row mt-4 mb-0">
+                            <label class="col-form-label col-form-label-sm"><span
+                                    class="text-danger">Valor Total de la Venta: $ </span></label>
+                        </div>
+                        <div class="form-group form-row mt-4 mb-0">
+                            <label class="col-form-label col-form-label-sm"><span
+                                    class="text-danger">*</span>Información requerida</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-success  btn-lg border-0 btnColor border-0"
+                        data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success btn-lg border-0 btnColor update-button"
+                         id="editContactModalBtn">Actualizar Venta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END Modify Contacts Modal -->
+
+    <div class="error-msg"></div>
+
+    <!-- Scripts -->
+
+    <!-- jQuery, Popper and Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+
+    <!-- END jQuery, Popper and Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/7396023e43.js" crossorigin="anonymous"></script>
+
+   
+
+    <!-- END Scripts -->
+
+
+</body>
+
+</html>

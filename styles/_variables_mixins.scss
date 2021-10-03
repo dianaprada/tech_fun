@@ -1,0 +1,56 @@
+
+$primary: #6CB42A;
+$blue: #6CB42A;
+$lightBlue: #0683f9;
+$skyBlue: #8EC7FC;
+$info: #1CC1F5;
+$success:#6CB42A;
+$brick: #BB3E3F;
+$danger: #DE0028;
+$warning: #FF6F00;
+$dark: #FFC700;
+$light: #E8E8E8;
+$white: #F7F7F7;
+$black: #000000;
+$secondary: #CCCCCC;
+
+$Font: 'Open Sans', sans-serif;
+
+@mixin titles {
+    font-family: $Font;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $black;
+    letter-spacing: 0;
+    line-height: 25px;
+    font-weight: bold;
+  };
+
+@mixin whiteTitles {
+    font-family: $Font;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $white;
+    letter-spacing: 0;
+    line-height: 25px;
+    font-weight: bold;
+  };
+
+@mixin labels {
+    font-family: $Font;
+    font-size: 0.8rem;
+    color: $black;
+    letter-spacing: 0;
+    line-height: 25px;
+  };
+
+@mixin selectText {
+    font-family: $Font;
+    color: $black;
+    font-size: 0.8rem;
+  
+  };
+
+@function vw($pixeles, $view_width) {
+    @return #{$pixeles/$view_width*100}vw;
+}
