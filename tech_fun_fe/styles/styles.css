@@ -1,0 +1,307 @@
+/* FONT*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+/* ROOT */
+:root {
+  font-size: 14px;
+}
+
+/* BODY */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* HIDE */
+.hiddenControl {
+  display: none !important;
+}
+
+.barColor {
+  background-color: #6CB42C;
+  color: white;
+}
+
+.btnColor {
+  background-color: #6CB42C;
+  color: white;
+}
+
+.btnColor:hover {
+  color: white;
+}
+
+.title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.filter {
+  width: 36.74963vw;
+}
+
+.filter-arrow {
+  border-left: none;
+  color: black;
+  background-color: white !important;
+}
+
+.filter-menu {
+  width: 36.74963vw;
+  -webkit-transform: translate3d(0px, 34px, 0px) !important;
+          transform: translate3d(0px, 34px, 0px) !important;
+}
+
+.btnFilterSearch {
+  border: 1px solid #ced4da;
+  border-left: none;
+  outline: none;
+}
+
+.btnFilterSearch:hover {
+  border: 1px solid #ced4da;
+  border-left: none;
+  outline: none;
+}
+
+.btnFilterSearch:active {
+  outline: none;
+  border: 1px solid #ced4da;
+}
+
+.imgBtnAddPic {
+  position: relative;
+  border: 0em;
+  background-color: transparent;
+  width: 6rem;
+  height: auto;
+  outline: none;
+  margin-right: 2vw;
+  z-index: 3;
+}
+
+.imgBtnAddPic:hover {
+  border: 0em;
+  outline: none;
+}
+
+.imgBtnAddPic:active {
+  border: 0em;
+  background-color: transparent;
+  outline: none;
+  top: 1px;
+}
+
+.imgBtnAddPic__userImg {
+  width: 6rem;
+  height: auto;
+}
+
+.imgBtnAddPic__frame {
+  position: absolute;
+  border: 0em;
+  background-color: transparent;
+  width: 7rem;
+  height: auto;
+  outline: none;
+  margin-right: 2vw;
+  z-index: 10;
+}
+
+.imgBtnAddPic__frame--img {
+  border: 0em;
+  background-color: transparent;
+  width: 7rem;
+  height: auto;
+  outline: none;
+  margin-right: 2vw;
+  outline: none;
+  z-index: 9;
+}
+
+.btn-search {
+  color: #6CB42A;
+  border: 1px solid #ced4da;
+}
+
+.btn-search:hover {
+  color: white;
+  background-color: #ced4da;
+}
+
+.btn-search:active {
+  color: white;
+  background-color: #ced4da;
+}
+
+.btn-size {
+  width: 195.31px;
+}
+
+.btn-xsm {
+  font-size: 0.7rem;
+  padding: 3px 6px;
+}
+
+.btn-tag {
+  color: #6CB42A;
+  background-color: #8EC7FC26;
+}
+
+.btn-tag:hover {
+  color: white;
+  background-color: #6CB42A;
+}
+
+.selected-row {
+  background-color: #8EC7FC26;
+}
+
+.disable {
+  pointer-events: none;
+}
+
+.primary-color.dropdown-item {
+  color: #6CB42A;
+}
+
+.btn-link {
+  color: black;
+  padding: 5px;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #E8E8E8;
+}
+
+td {
+  height: 56px;
+}
+
+.table th {
+  height: 67px;
+  padding-top: 22px;
+}
+
+.progress {
+  height: 8px;
+  width: 109px;
+}
+
+.interest-percentage,
+.region-table,
+.email-table {
+  font-size: 0.8rem;
+}
+
+.user-img {
+  width: 24px;
+  height: 24px;
+}
+
+p {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.modal-button {
+  font-size: 1rem;
+  min-width: 130px;
+  color: #6CB42A;
+}
+
+.modal-button:hover {
+  background-color: #6CB42A;
+  color: #F7F7F7;
+}
+
+.modal-button:active {
+  background-color: #6CB42A;
+  color: #F7F7F7;
+}
+
+.close {
+  opacity: 1;
+  font-size: 2rem;
+}
+
+.new-user-img {
+  width: 85px;
+  height: 85px;
+}
+
+.borders-new-user-modal {
+  border: 3px solid #6CB42A !important;
+  border-radius: 8px;
+}
+
+.camera-button {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border-width: 3px !important;
+  top: 70%;
+  left: 70%;
+  background-color: #6CB42A;
+}
+
+#company::-webkit-input-placeholder {
+  font-size: 0.7rem;
+}
+
+#company:-ms-input-placeholder {
+  font-size: 0.7rem;
+}
+
+#company::-ms-input-placeholder {
+  font-size: 0.7rem;
+}
+
+#company::placeholder {
+  font-size: 0.7rem;
+}
+
+.new-contact-modal-header {
+  height: 120px;
+}
+
+.modal-body {
+  margin-top: -7%;
+}
+
+.interest-range {
+  width: 235px;
+}
+
+.contact-channel-info {
+  width: 70%;
+}
+
+.contact-channel-info-edit {
+  width: 80%;
+}
+
+.add-channel {
+  width: 70%;
+  min-width: 70%;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.navbar-margin {
+  position: relative;
+  margin-right: 2em;
+}
+/*# sourceMappingURL=styles.css.map */
